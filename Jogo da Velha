@@ -1,2 +1,49 @@
-# Questao3
-Garotes de Programa- Ayla Rodrigues de Moura, Douglas Mareli, Jõao , Sofia Kitaeva - Questão 3
+//Questao3
+//Garotes de Programa- Ayla Rodrigues de Moura, Douglas Mareli, Jõao Vitor Spala , Sofia Kitaeva - Questão 3
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main ()
+	{ 
+
+	setlocale (LC_ALL,"");
+	char start;
+	int quadrado[3][3];
+	int l;
+	int c;
+
+
+	printf("Escolha as coordenadas:\n");
+	scanf("%d %d", &l ,&c);
+	
+	for(int i = 0; i < 9; i++)
+	{
+		for(int j = 0; j< 9; j++)
+		{
+			quadrado[i][j] = 0;
+		}
+	}
+	
+	for(int y = 0; y < 9; y++)
+	{
+		for(int z = 0; z < 9; z++)
+		{
+			if(quadrado[y][z] == 1)
+			{
+				printf("1");
+			}else if(quadrado[y][z] == 0)
+			{
+				printf("0");
+			}
+			else if 
+			{
+				printf("2");
+			}
+		printf("\n");
+			}
+	}
+	
+	return 0;	
+}
