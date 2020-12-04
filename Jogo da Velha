@@ -71,7 +71,21 @@ int main ()
 				}
 			}
 			printf("\n");
-		}	
+		}
+		
+		if((quadrado[0][0] == quadrado[0][1] && quadrado[0][0] == quadrado [0][2] && quadrado[0][0] == 1)||
+		(quadrado[0][0] == quadrado[1][0] && quadrado[0][0] == quadrado [2][0] && quadrado[0][0] == 1)||
+		(quadrado[1][0] == quadrado[1][1] && quadrado[1][0] == quadrado [1][2] && quadrado[1][0] == 1)||
+		(quadrado[2][0] == quadrado[2][1] && quadrado[2][0] == quadrado [2][2] && quadrado[2][0] == 1)||
+		(quadrado[0][1] == quadrado[1][1] && quadrado[0][1] == quadrado [2][1] && quadrado[0][1] == 1)||
+		(quadrado[0][2] == quadrado[1][2] && quadrado[0][2] == quadrado [2][2] && quadrado[1][0] == 1)||
+		(quadrado[0][0] == quadrado[1][1] && quadrado[0][0] == quadrado [2][2] && quadrado[0][0] == 1)||
+		(quadrado[0][2] == quadrado[1][1] && quadrado[0][2] == quadrado [2][0] && quadrado[0][2] == 1))
+		{ 
+			printf("\n=======================\n O JOGADOR 1 É VENCEDOR\n  +---+---+---+---+\n");
+		}
+
+
 		
 		int linhaP2, colunaP2;
 		//jogada player 2
@@ -109,34 +123,19 @@ int main ()
 			}
 			printf("\n");
 		}
+		if((quadrado[0][0] == quadrado[0][1] && quadrado[0][0] == quadrado [0][2] && quadrado[0][0] == 2)||
+		(quadrado[0][0] == quadrado[1][0] && quadrado[0][0] == quadrado [2][0] && quadrado[0][0] == 2)||
+		(quadrado[1][0] == quadrado[1][1] && quadrado[1][0] == quadrado [1][2] && quadrado[1][0] == 2)||
+		(quadrado[2][0] == quadrado[2][1] && quadrado[2][0] == quadrado [2][2] && quadrado[2][0] == 2)||
+		(quadrado[0][1] == quadrado[1][1] && quadrado[0][1] == quadrado [2][1] && quadrado[0][1] == 2)||
+		(quadrado[0][2] == quadrado[1][2] && quadrado[0][2] == quadrado [2][2] && quadrado[1][0] == 2)||
+		(quadrado[0][0] == quadrado[1][1] && quadrado[0][0] == quadrado [2][2] && quadrado[0][0] == 2)||
+		(quadrado[0][2] == quadrado[1][1] && quadrado[0][2] == quadrado [2][0] && quadrado[0][2] == 2))
+		{
+		printf("\n=======================\n O JOGADOR 2 É VENCEDOR\n  +---+---+---+---+\n");
+		}
+		
 	}
 	
 	return 0;	
 }
-
-if	(quadrado[0][0] == quadrado[0][1] && quadrado[0][0] == quadrado [0][2] && quadrado[0][0] == '1')||
-	(quadrado[0][0] == quadrado[1][0] && quadrado[0][0] == quadrado [2][0] && quadrado[0][0] == '1')||
-	(quadrado[1][0] == quadrado[1][1] && quadrado[1][0] == quadrado [1][2] && quadrado[1][0] == '1')||
-	(quadrado[2][0] == quadrado[2][1] && quadrado[2][0] == quadrado [2][2] && quadrado[2][0] == '1')||
-	(quadrado[0][1] == quadrado[1][1] && quadrado[0][1] == quadrado [2][1] && quadrado[0][1] == '1')||
-	(quadrado[0][2] == quadrado[1][2] && quadrado[0][2] == quadrado [2][2] && quadrado[1][0] == '1')||
-	(quadrado[0][0] == quadrado[1][1] && quadrado[0][0] == quadrado [2][2] && quadrado[0][0] == '1')||
-	(quadrado[0][2] == quadrado[1][1] && quadrado[0][2] == quadrado [2][0] && quadrado[0][2] == '1')||
-
-	{ 
-		printf("O jogador 1 é o vencedor");
-	}
-
-if
-	(quadrado[0][0] == quadrado[0][1] && quadrado[0][0] == quadrado [0][2] && quadrado[0][0] == '2')||
-	(quadrado[0][0] == quadrado[1][0] && quadrado[0][0] == quadrado [2][0] && quadrado[0][0] == '2')||
-	(quadrado[1][0] == quadrado[1][1] && quadrado[1][0] == quadrado [1][2] && quadrado[1][0] == '2')||
-	(quadrado[2][0] == quadrado[2][1] && quadrado[2][0] == quadrado [2][2] && quadrado[2][0] == '2')||
-	(quadrado[0][1] == quadrado[1][1] && quadrado[0][1] == quadrado [2][1] && quadrado[0][1] == '2')||
-	(quadrado[0][2] == quadrado[1][2] && quadrado[0][2] == quadrado [2][2] && quadrado[1][0] == '2')||
-	(quadrado[0][0] == quadrado[1][1] && quadrado[0][0] == quadrado [2][2] && quadrado[0][0] == '2')||
-	(quadrado[0][2] == quadrado[1][1] && quadrado[0][2] == quadrado [2][0] && quadrado[0][2] == '2')||
-
-	{printf("O jogador 2 é o vencedor");
-}
-
