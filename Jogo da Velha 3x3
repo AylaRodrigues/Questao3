@@ -1,4 +1,4 @@
-//Questao3
+//Questao3 - Jogo da velha 3 x 3
 //Garotes de Programa- Ayla Rodrigues de Moura, Douglas Mareli, Jõao Vitor Spala , Sofia Kitaeva - Questão 3
 
 #include <stdio.h>
@@ -33,18 +33,30 @@ int main ()
 	}
 	
 	//inicio do jogo
-	printf("Jogo da Velha!\n \n");
+	printf("========================\n    JOGO DA VELHA\n  +---+---+---+---+\n");
 	
 	while(vitoria == 0)
 	{	
+		int valido = 0;
 		int linhaP1, colunaP1;
 		//jogada player 1
-		printf("\nPrimeiro jogador: \n");
-		scanf("%d %d",&linhaP1,&colunaP1);
-		quadrado[linhaP1-1][colunaP1-1] = 1;
-		player1[linhaP1-1][colunaP1-1] = 1;
+		printf("\n Primeiro jogador: \n");
 		
-		printf("\nTabuleiro: \n");
+		while(valido == 0){
+			scanf("%d %d",&linhaP1,&colunaP1);
+			if(quadrado[linhaP1-1][colunaP1-1] == 0)
+			{
+				player1[linhaP1-1][colunaP1-1] = 1;
+				quadrado[linhaP1-1][colunaP1-1] = 1;
+				valido++;
+			}else{
+				printf("-----Posição Inválido-----\n Tente novamente: \n");
+			}
+		}
+		
+		valido = 0;
+		
+		printf("\n Tabuleiro: \n");
 		for(int y = 0; y < 3; y++)
 		{	
 			printf("    ");
@@ -62,30 +74,60 @@ int main ()
 				}
 			}
 			printf("\n");
-		}	
-		if	
-		((quadrado[0][0] == quadrado[0][1] && quadrado[0][0] == quadrado [0][2] && quadrado[0][0] == 1)||
-		(quadrado[0][0] == quadrado[1][0] && quadrado[0][0] == quadrado [2][0] && quadrado[0][0] == 1)||
-		(quadrado[1][0] == quadrado[1][1] && quadrado[1][0] == quadrado [1][2] && quadrado[1][0] == 1)||
-		(quadrado[2][0] == quadrado[2][1] && quadrado[2][0] == quadrado [2][2] && quadrado[2][0] == 1)||
-		(quadrado[0][1] == quadrado[1][1] && quadrado[0][1] == quadrado [2][1] && quadrado[0][1] == 1)||
-		(quadrado[0][2] == quadrado[1][2] && quadrado[0][2] == quadrado [2][2] && quadrado[1][0] == 1)||
-		(quadrado[0][0] == quadrado[1][1] && quadrado[0][0] == quadrado [2][2] && quadrado[0][0] == 1)||
-		(quadrado[0][2] == quadrado[1][1] && quadrado[0][2] == quadrado [2][0] && quadrado[0][2] == 1))
-
-		{ 
-		printf("\n=======================\n O JOGADOR 1 É VENCEDOR\n  +---+---+---+---+\n");
 		}
-
 		
+		//verificar se o jogador 1 ganhou
+		if((quadrado[0][0] == 1 && quadrado[0][1] == 1 && quadrado [0][2]== 1)||
+		(quadrado[0][0] == 1 && quadrado[1][0]== 1 && quadrado [2][0] == 1)||
+		(quadrado[1][0] == 1 && quadrado[1][1]== 1 && quadrado [1][2]== 1)||
+		(quadrado[2][0] == 1 && quadrado[2][1]== 1 && quadrado [2][2]== 1)||
+		(quadrado[0][1] == 1 && quadrado[1][1]== 1 && quadrado [2][1]== 1)||
+		(quadrado[0][2] == 1 && quadrado[1][2]== 1 && quadrado [2][2] == 1)||
+		(quadrado[0][0] == 1 && quadrado[1][1]== 1 && quadrado [2][2] == 1)||
+		(quadrado[0][2] == 1 && quadrado[1][1]== 1 && quadrado [2][0] == 1))
+		{ 
+			printf("\n========================\nO JOGADOR 1 É O VENCEDOR\n  +---+---+---+---+\n");
+			break;
+		}
+		
+		//verifcar empate
+		int ct =0;
+		for(int i = 0; i < 3; i++)
+		{
+			for(int j = 0; j < 3; j++)
+			{
+				if(quadrado[i][j]==0)
+				{
+					ct++;
+				}
+			}
+		}
+		printf("%d",ct);
+		if(ct == 0)
+		{
+			printf("\n========================\n   O JOGO EMPATOU\n  +---+---+---+---+\n");
+			break;
+		}
+		
+
 		int linhaP2, colunaP2;
 		//jogada player 2
-		printf("\nSegundo jogador: \n");
-		scanf("%d %d",&linhaP2,&colunaP2);
-		quadrado[linhaP2-1][colunaP2-1] = 2;
-		player2[linhaP2-1][colunaP2-1] = 2;
+		printf("\n Segundo jogador: \n");
 		
-		printf("\nTabuleiro: \n");
+		while(valido == 0){
+			scanf("%d %d",&linhaP2,&colunaP2);
+			if(quadrado[linhaP2-1][colunaP2-1] == 0)
+			{
+				quadrado[linhaP2-1][colunaP2-1] = 2;
+				player2[linhaP2-1][colunaP2-1] = 2;
+				valido++;
+			}else
+			{
+				printf("-----Posição Inválido-----\n Tente novamente: \n");
+			}
+		}
+		
+		printf("\n Tabuleiro: \n");
 		for(int y = 0; y < 3; y++)
 		{	
 			printf("    ");
@@ -104,19 +146,20 @@ int main ()
 			}
 			printf("\n");
 		}
-		if
-		((quadrado[0][0] == quadrado[0][1] && quadrado[0][0] == quadrado [0][2] && quadrado[0][0] == 2)||
-		(quadrado[0][0] == quadrado[1][0] && quadrado[0][0] == quadrado [2][0] && quadrado[0][0] == 2)||
-		(quadrado[1][0] == quadrado[1][1] && quadrado[1][0] == quadrado [1][2] && quadrado[1][0] == 2)||
-		(quadrado[2][0] == quadrado[2][1] && quadrado[2][0] == quadrado [2][2] && quadrado[2][0] == 2)||
-		(quadrado[0][1] == quadrado[1][1] && quadrado[0][1] == quadrado [2][1] && quadrado[0][1] == 2)||
-		(quadrado[0][2] == quadrado[1][2] && quadrado[0][2] == quadrado [2][2] && quadrado[1][0] == 2)||
-		(quadrado[0][0] == quadrado[1][1] && quadrado[0][0] == quadrado [2][2] && quadrado[0][0] == 2)||
-		(quadrado[0][2] == quadrado[1][1] && quadrado[0][2] == quadrado [2][0] && quadrado[0][2] == 2))
-		
+		//verificar se o jogador 2 ganhou
+		if((quadrado[0][0] == 2 && quadrado[0][1] == 2 && quadrado [0][2]==2)||
+		(quadrado[0][0] == 2 && quadrado[1][0]== 2 && quadrado [2][0] == 2)||
+		(quadrado[1][0] == 2 && quadrado[1][1]== 2 && quadrado [1][2]== 2)||
+		(quadrado[2][0] == 2 && quadrado[2][1]== 2 && quadrado [2][2]==2)||
+		(quadrado[0][1] == 2 && quadrado[1][1]== 2 && quadrado [2][1]==2)||
+		(quadrado[0][2] == 2 && quadrado[1][2]== 2 && quadrado [2][2] == 2)||
+		(quadrado[0][0] == 2 && quadrado[1][1]== 2 && quadrado [2][2] == 2)||
+		(quadrado[0][2] == 2 && quadrado[1][1]== 2 && quadrado [2][0] == 2))
 		{
-		printf("\n=======================\n O JOGADOR 2 É VENCEDOR\n  +---+---+---+---+\n");
+			printf("\n========================\nO JOGADOR 2 É O VENCEDOR\n  +---+---+---+---+\n");
+			break;
 		}
+		
 	}
 	
 	return 0;	
