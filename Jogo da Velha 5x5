@@ -32,5 +32,49 @@ int main ()
 		}
 	}
 	
+	//inicio do jogo
+	printf("========================\n    JOGO DA VELHA\n  +---+---+---+---+\n");
+	
+	while(vitoria == 0)
+	{	
+		int valido = 0;
+		int linhaP1, colunaP1;
+		//jogada player 1
+		printf("\n Primeiro jogador: \n");
+		
+		while(valido == 0){
+			scanf("%d %d",&linhaP1,&colunaP1);
+			if(quadrado[linhaP1-1][colunaP1-1] == 0)
+			{
+				player1[linhaP1-1][colunaP1-1] = 1;
+				quadrado[linhaP1-1][colunaP1-1] = 1;
+				valido++;
+			}else{
+				printf("-----Posiçãoo Inválida-----\n Tente novamente: \n");
+			}
+		}
+		
+		valido = 0;
+		
+		printf("\n Tabuleiro: \n");
+		for(int y = 0; y < 5; y++)
+		{	
+			printf("    ");
+			for(int z = 0; z < 5; z++)
+			{
+				if(quadrado[y][z] == 1)
+				{
+					printf(" 1 ");
+				}else if(quadrado[y][z]==2)
+				{
+					printf(" 2 ");
+				}else if(quadrado[y][z] == 0)
+				{
+					printf(" 0 ");
+				}
+			}
+			printf("\n");
+		}
+	
 	return 0;	
 }
