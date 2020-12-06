@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <windows.h>
 
 int main ()
 { 
@@ -33,14 +34,16 @@ int main ()
 	}
 	
 	//inicio do jogo
-	printf("========================\n    JOGO DA VELHA\n  +---+---+---+---+\n");
+	SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0C);
+	printf("=================\n  JOGO DA VELHA\n+---+---+---+---+\n");
 	
 	while(vitoria == 0)
 	{	
 		int valido = 0;
 		int linhaP1, colunaP1;
 		//jogada player 1
-		printf("\n Primeiro jogador: \n");
+		SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0B);
+		printf("\n>Primeiro jogador: \n");
 		
 		while(valido == 0){
 			scanf("%d %d",&linhaP1,&colunaP1);
@@ -50,15 +53,18 @@ int main ()
 				quadrado[linhaP1-1][colunaP1-1] = 1;
 				valido++;
 			}else{
-				printf("-----Posição Inválido-----\n Tente novamente: \n");
+				SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0xC7);
+				printf("-----Posição Inválida-----\n Tente novamente: \n");
+				SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0B);
 			}
 		}
 		
 		valido = 0;
-		
-		printf("\n Tabuleiro: \n");
+		SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0B);
+		printf("\n>Tabuleiro: \n");
 		for(int y = 0; y < 3; y++)
 		{	
+			SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0E);
 			printf("    ");
 			for(int z = 0; z < 3; z++)
 			{
@@ -86,7 +92,9 @@ int main ()
 		(quadrado[0][0] == 1 && quadrado[1][1]== 1 && quadrado [2][2] == 1)||
 		(quadrado[0][2] == 1 && quadrado[1][1]== 1 && quadrado [2][0] == 1))
 		{ 
-			printf("\n========================\nO JOGADOR 1 É O VENCEDOR\n  +---+---+---+---+\n");
+			system("cls");
+			SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x27);
+			printf("\n========================\nO JOGADOR 1 É O VENCEDOR\n+---+---+---+---+---+---\n");
 			break;
 		}
 		
@@ -104,14 +112,17 @@ int main ()
 		}
 		if(ct == 0)
 		{
-			printf("\n========================\n   O JOGO EMPATOU\n  +---+---+---+---+\n");
+			system("cls");
+			SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x67);
+			printf("\n========================\nO JOGO EMPATOU\n+---+---+---+---+---+---+\n");
 			break;
 		}
 		
 
 		int linhaP2, colunaP2;
 		//jogada player 2
-		printf("\n Segundo jogador: \n");
+		SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0B);
+		printf("\n>Segundo jogador: \n");
 		
 		while(valido == 0){
 			scanf("%d %d",&linhaP2,&colunaP2);
@@ -122,13 +133,16 @@ int main ()
 				valido++;
 			}else
 			{
-				printf("-----Posição Inválido-----\n Tente novamente: \n");
+				SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0xC7);
+				printf("-----Posição Inválida-----\n Tente novamente: \n");
+				SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0B);
 			}
 		}
-		
-		printf("\n Tabuleiro: \n");
+		SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0B);
+		printf("\n>Tabuleiro: \n");
 		for(int y = 0; y < 3; y++)
 		{	
+			SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x0E);
 			printf("    ");
 			for(int z = 0; z < 3; z++)
 			{
@@ -155,7 +169,9 @@ int main ()
 		(quadrado[0][0] == 2 && quadrado[1][1]== 2 && quadrado [2][2] == 2)||
 		(quadrado[0][2] == 2 && quadrado[1][1]== 2 && quadrado [2][0] == 2))
 		{
-			printf("\n========================\nO JOGADOR 2 É O VENCEDOR\n  +---+---+---+---+\n");
+			system("cls");
+			SetConsoleTextAttribute (GetStdHandle(STD_OUTPUT_HANDLE), 0x27);
+			printf("\n========================\nO JOGADOR 2 É O VENCEDOR\n+---+---+---+---+---+---\n");
 			break;
 		}
 		
